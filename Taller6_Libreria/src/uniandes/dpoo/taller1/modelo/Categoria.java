@@ -191,5 +191,6 @@ public class Categoria
 		// TODO Auto-generated method stub
 		this.libros.remove(libro);
 	}
+	
 
 }

@@ -180,9 +180,18 @@ public class InterfazLibreria extends JFrame
 			e.printStackTrace();
 		}
 		
-		if (libreria.sacarNumero()>0)
+		if (libreria.sacarExtras().size()>0)
 		{
-			JOptionPane.showMessageDialog(this, "Se cargaron "+String.valueOf(libreria.sacarNumero())+" categorias mas de las necesarias");
+			String agregar = "";
+			for(int x=0; x<libreria.sacarExtras().size(); x++)
+			{
+				agregar = agregar.concat(libreria.sacarExtras().get(x).darNombre());
+				agregar = agregar.concat(" : ");
+				agregar = agregar.concat(String.valueOf(libreria.sacarExtras().get(x).darLibros().size()));
+				agregar = agregar.concat(" libros \n");
+			}
+			JOptionPane.showMessageDialog(this, "Se cargaron "+String.valueOf(libreria.sacarExtras().size())+" categorias mas de las necesarias"
+					+ "que son \n " + agregar);
 		}
 		
 

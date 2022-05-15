@@ -155,7 +155,8 @@ public class Libreria
 			try {
 				laCategoria = buscarCategoria(nombreCategoria);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// ACA SE INVOCA EL METODO DE CREACION DE CATEGORIA
+				//LUEGO DE ATRAPAR LA EXCEPCION
 				laCategoria = agregarCategoria(nombreCategoria,false);
 			}
 			String archivoPortada = partes[4];
@@ -180,6 +181,9 @@ public class Libreria
 
 		return libros;
 	}
+	/*
+	 * METODO PARA AGREGAR LAS CATEGORIAS
+	 * RECIBE POR PARAMETRO LO NECESARIO PARA LA CREACION*/
 
 	private Categoria agregarCategoria(String nombreCategoria, boolean ficcion) {
 		
@@ -220,6 +224,7 @@ public class Libreria
 		}
 		if (laCategoria == null)
 		{
+			//AQUI SE SACA LA EXCPTION SI LA CATEGORIA SIGUE NULA(NO LA ENCONTRO)
 			throw new Exception("No encontre esa categoria");
 		}
 		return laCategoria;
@@ -460,9 +465,9 @@ public class Libreria
 		return hayAutorEnVariasCategorias;
 	}
 
-	public int sacarNumero() {
+	public ArrayList<Categoria> sacarExtras() {
 		// TODO Auto-generated method stub
-		return this.lasnuevas.size();
+		return this.lasnuevas;
 	}
 
 	public boolean buscarCate(String cate) {
@@ -505,10 +510,8 @@ public class Libreria
 	}
 
 	public int borrarLibros(String linea) throws Exception {
-		// TODO Auto-generated method stub
 		int rtaa=0;
 		ArrayList<Libro> paborrar = new ArrayList<Libro>();
-		//ArrayList<Libro> provisional = catalogo;
 		String[] autores = linea.split(",");
 		boolean[] rta = new boolean[autores.length];
 		for(int j=0; j<autores.length; j++)
